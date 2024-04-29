@@ -1,0 +1,64 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+
+
+<div class="d-flex flex-wrap px-5 pt- align-items-center gap-5 ">
+
+  <div class="col-4 pt-3">
+    <h1>Welcome to Joke Spot</h1>
+    <p>A joke is a short humorous piece of oral literature in which the funniness culminates in the final sentence, called the punchline… In fact, the main condition is that the tension should reach its highest level at the very end. No continuation relieving the tension should be added. As for its being "oral," it is true that jokes may appear printed, but when further transferred, there is no obligation to reproduce the text verbatim, as in the case of poetry.</p>
+  </div>
+  <div class="col-4">
+    <img class="w-100 mx-auto gap-3"src="{% static 'header.jpeg' %}" />
+  </div>
+</div>
+
+
+
+<div class="d-flex flex-wrap p-4" style="background-color:#efe5b8;">
+  <div class="col-2 bg-white p-3" >
+    <h5>All Categories</h5>
+    {% for cat in category %}
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="category"
+        id="{{cat.id}}"
+      />
+      <label class="form-check-label" for="{{cat.id}}">
+        
+        <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark" >{{cat.name}}</a>
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-10 p-3">
+    <h4>{{data | length}} results found</h4>
+    <div class="d-flex flex-wrap pt-5">
+      {% for post in data %}
+      <div class="col-sm-3">
+        <div class="card m-2">
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">{{post.content}}</a></h5>
+            <p>
+              Category : {% for cat in post.category.all %}
+              <button class="btn btn-sm m-2 bg-warning" disabled>
+                <b>{{cat.name}}</b>
+                <br>
+              </button>
+              {% endfor %}
+              <br>
+              <a class="text-decoration-none "href="{% url 'like' post.id %}">
+                <i class="fa fa-thumbs-up" style="font-size:24px"></i> : {{post.like}} 
+                <i style="font-size:24px" class="fa">&#xf14d;</i> : {{post.share}}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
