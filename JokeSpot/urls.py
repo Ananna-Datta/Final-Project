@@ -22,6 +22,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='homepage'),
+    path('contact', views.contact, name='contact'),
+    path('about', views.about, name='about'),
+    path('service', views.service, name='service'),
     path('category/<slug:category_slug>/', views.home, name='category_wise_post'),
     path('author/', include('author.urls')),
     path('post/', include('posts.urls')),

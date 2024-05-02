@@ -17,11 +17,12 @@
     
 
     <title>Joke Spot</title>
+    {% block change %} {% endblock %}
   </head>
   <body style="background-color : #e4e4e4">
     <nav class="navbar navbar-expand-lg navbar-dark "style="background-color:#FBC529;">
       <div class="container-fluid">
-        <a class="navbar-brand m-auto"style="color:black; ml-20px;" href="{% url 'homepage' %}"><b><h1>Joke Spot</h1></b></a>
+        <a class="navbar-brand m-auto d-flex align-items-center"style="color:black; ml-20px;" href="{% url 'homepage' %}"><b><h1>Joke Spot</h1></b></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -46,7 +47,7 @@
 
             {% if request.user.is_authenticated %}
             <li class="nav-item mx-3">
-              <a
+              <a style="text-decoration: none;"
                 class="nav-link text-dark"
                 href="{% url 'add_post' %}"
                 >Add Post</a
@@ -58,14 +59,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               {% if request.user.is_authenticated %}
               <li class="nav-item mx-3">
-                <a
-                  class="nav-link btn btn-primary text-white"
+                <a style="text-decoration: none;"
+                  class="nav-link btn  text-dark"
                   href="{% url 'profile' %}"
                   >Profile</a
                 >
               </li>
               <li class="nav-item mx-3">
-                <a
+                <a 
                   class="nav-link btn btn-danger text-dark"
                   href="{% url 'user_logout' %}"
                   >Logout</a
@@ -73,15 +74,36 @@
               </li>
               {% else %}
               <li class="nav-item mx-3">
+                <a style="text-decoration: none;"
+                  class="nav-link btn  text-dark text-none"
+                  href="{% url 'service' %}"
+                  >Service</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a style="text-decoration: none;"
+                  class="nav-link btn  text-dark text-none"
+                  href="{% url 'contact' %}"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a style="text-decoration: none;"
+                  class="nav-link btn  text-dark text-none"
+                  href="{% url 'about' %}"
+                  >About Us</a
+                >
+              </li>
+              <li class="nav-item mx-3">
                 <a
-                  class="nav-link btn btn-primary text-white"
+                  class="nav-link btn  text-dark"
                   href="{% url 'register' %}"
                   >Register</a
                 >
               </li>
               <li class="nav-item">
                 <a
-                  class="nav-link btn btn-light text-dark"
+                  class="nav-link btn  text-dark"
                   href="{% url 'user_login' %}"
                   >Login</a
                 >
@@ -93,12 +115,12 @@
       </div>
     </nav>
 
-    {% for i in messages %}
+    {% comment %} {% for i in messages %}
     <div class="">
       <h3 class="text-{{i.tags}}">{{i}}</h3>
-    </div>
+    </div> {% endcomment %}
 
-    {% endfor %} 
+    {% comment %} {% endfor %}  {% endcomment %}
     
     {% block content %} {% endblock %}
 

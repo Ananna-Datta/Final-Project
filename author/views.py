@@ -85,7 +85,7 @@ def signup(request):
         else:
             form = forms.RegisterForm()
 
-        return render(request, 'register.html', {'form': form, 'type' : 'Login'})
+        return render(request, 'form.html', {'form': form, 'title': 'Sign Up', 'button_text': 'Sign Up', 'button_class': 'btn-success'})
     else:
         return redirect('homepage')
     
@@ -113,28 +113,28 @@ def user_login(request):
         else:
             form = AuthenticationForm()
 
-        return render(request, 'register.html', {'form': form, 'type' : 'Login'})
+        return render(request, 'form.html', {'form': form, 'title': 'Login', 'button_text': 'Login', 'button_class': 'btn-primary'})
     else:
         return redirect('homepage')
 
 
-class UserLoginView(LoginView):
-    template_name = 'register.html'
-    # success_url = reverse_lazy('profile')
-    def get_success_url(self):
-        return reverse_lazy('profile')
-    def form_valid(self, form):
-        messages.success(self.request, 'Logged in Successful')
-        return super().form_valid(form)
+# class UserLoginView(LoginView):
+    # template_name = 'register.html'
+    # # success_url = reverse_lazy('profile')
+    # def get_success_url(self):
+    #     return reverse_lazy('profile')
+    # def form_valid(self, form):
+    #     messages.success(self.request, 'Logged in Successful')
+    #     return super().form_valid(form)
     
-    def form_invalid(self, form):
-        messages.success(self.request, 'Logged in information incorrect')
-        return super().form_invalid(form)
+    # def form_invalid(self, form):
+    #     messages.success(self.request, 'Logged in information incorrect')
+    #     return super().form_invalid(form)
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['type'] = 'Login'
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['type'] = 'Login'
+    #     return context
   
 
 @login_required
