@@ -77,14 +77,13 @@
 {% block content %}
 
 {% comment %} <h1>Change Your Password From Here</h1> {% endcomment %}
-
-<div class="about-section">
+<div class="about-section mt-5">
   <h1>About Us Page</h1>
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
-<div class="row">
-  <div class="column">
+<div class="row justify-content-center">
+  <div class="col-3">
     <div class="card">
       <img src="{% static 'team1.jpg' %}" alt="Jane" style="width:100%">
       <div class="container">
@@ -97,7 +96,7 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="col-3">
     <div class="card">
       <img src="{% static 'team2.jpg' %}" alt="Mike" style="width:100%">
       <div class="container">
@@ -110,7 +109,7 @@
     </div>
   </div>
   
-  <div class="column">
+  <div class="col-3">
     <div class="card">
       <img src="{% static 'team3.jpg' %}" alt="John" style="width:100%">
       <div class="container">

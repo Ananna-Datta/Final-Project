@@ -1,33 +1,25 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-
-
-
-<div class="d-flex flex-wrap p-4" style="background-color:#efe5b8;">
-  <div class="col-2 bg-white p-3" >
-    <h5>All Categories</h5>
+{% comment %} <h1>Our Service</h1> {% endcomment %}
+<br>
+<div style="background-color:#efe5b8;"class="mt-5">
+  <h1 style="text-align:center "><u>Jokes</u></h1>
+  <div class="row p-3 text-center justify-content-center">
     {% for cat in category %}
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="category"
-        id="{{cat.id}}"
-      />
-      <label class="form-check-label" for="{{cat.id}}">
-        
-        <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark" >{{cat.name}}</a>
-      </label>
+    <div class="col-1 d-flex flex-wrap ">
+      <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark btn "style="background-color:#FBC529;" >{{cat.name}}</a>
     </div>
     {% endfor %}
   </div>
-  <div class="col-10 p-3">
-    <h4>{{data | length}} results found</h4>
+  
+  <div class="d-flex flex-wrap p-4 justify-content-center" style="background-color:#efe5b8;">
+  <div class="col-10 p-1">
+    <h1>{{data | length}} results found</h1>
     <div class="d-flex flex-wrap pt-5">
       {% for post in data %}
       <div class="col-sm-3">
-        <div class="card m-2">
+        <div class="card m-2 h-100 ">
           <div class="card-body">
             <h5 class="card-title"><a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">{{post.content}}</a></h5>
             <p>
