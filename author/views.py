@@ -114,6 +114,7 @@ def user_login(request):
             form = AuthenticationForm()
 
         return render(request, 'form.html', {'form': form, 'title': 'Login', 'button_text': 'Login', 'button_class': 'btn-primary'})
+        # return render(request, 'register.html',{'type':type})
     else:
         return redirect('homepage')
 
