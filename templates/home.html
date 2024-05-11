@@ -132,28 +132,34 @@
         width: 100%;
         display: block;
       }
+      .pp{
+        display : block;
+        {% comment %} display: block; {% endcomment %}
+      }
+      .ppp{
+        display : none;
+      }
     }
     </style>
 {% endblock %}
 {% block content %}
 
 
-<div class="d-flex flex-wrap px-5 pt- align-items-center justify-content-center gap-5 border border-dark">
-
-  <div class="col-4 pt-3">
-    <h1>Welcome to Joke Spot</h1>
-    <p>A joke is a short humorous piece of oral literature in which the funniness culminates in the final sentence, called the punchline… In fact, the main condition is that the tension should reach its highest level at the very end. No continuation relieving the tension should be added. As for its being "oral," it is true that jokes may appear printed, but when further transferred, there is no obligation to reproduce the text verbatim, as in the case of poetry.</p>
-  </div>
-  <div class="col-6">
-    <img class="w-100 mx-auto mt-5 mx-5"src="{% static 'emogi.png' %}" />
-  </div>
+<div class="container d-flex flex-wrap px-5 align-items-center justify-content-center gap-5 border border-none ">
+    <div class="ppp col-4 pt-5">
+      <h1>Welcome to Joke Spot</h1>
+      <p>A joke is a short humorous piece of oral literature in which the funniness culminates in the final sentence, called the punchline… In fact, the main condition is that the tension should reach its highest level at the very end. No continuation relieving the tension should be added. As for its being "oral," it is true that jokes may appear printed, but when further transferred, there is no obligation to reproduce the text verbatim, as in the case of poetry.</p>
+    </div>
+    <div class="pp col-md-6 ">
+      <img class="w-100 d-block mx-auto mt-5 mx-5"src="{% static 'emogi.png' %}" />
+    </div>
 </div>
 <br>
 <div style="background-color:#efe5b8;">
   <h1 data-aos="fade-up" data-aos-offset="200"style="text-align:center">Jokes</u></h1>
   <div class="row p-3 text-center justify-content-center">
     {% for cat in category %}
-    <div class="col-1 d-flex flex-wrap ">
+    <div class="col-sm-1 d-flex flex-wrap justify-content-center p-1">
       <a href="{% url 'category_wise_post' cat.slug %}" class="text-decoration-none text-dark btn "style="background-color:#FBC529;" >{{cat.name}}</a>
     </div>
     {% endfor %}
@@ -192,7 +198,7 @@
 <br>
 <h1 style="text-align:center "><u>Our Team</u></h1>
 <div class="row justify-content-center">
-  <div class="col-3"data-aos="fade-right" data-aos-offset="200">
+  <div class="col-sm-3"data-aos="fade-right" data-aos-offset="200">
     <div class="card">
       <img src="{% static 'team1.jpg' %}" alt="Jane" style="width:100%">
       <div class="container">
@@ -205,7 +211,7 @@
     </div>
   </div>
 
-  <div class="col-3">
+  <div class="col-sm-3">
     <div class="card">
       <img src="{% static 'team2.jpg' %}" alt="Mike" style="width:100%">
       <div class="container">
@@ -218,7 +224,7 @@
     </div>
   </div>
   
-  <div class="col-3">
+  <div class="col-sm-3">
     <div class="card" data-aos="fade-left" data-aos-offset="200">
       <img src="{% static 'team3.jpg' %}" alt="John" style="width:100%">
       <div class="container">

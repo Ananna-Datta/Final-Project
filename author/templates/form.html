@@ -2,7 +2,20 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% comment %} {% block title %}{{title}}{% endblock %} {% endcomment %}
+{% block change %}
 
+<style>
+  @media screen and (max-width: 650px) {
+    .log{
+      width: 100%;
+      height: 1050px;
+      background-color: red;
+      {% comment %} display: block; {% endcomment %}
+    }
+</style>
+
+
+{% endblock %}
 {% block content %}
 <br>
 <br>
@@ -35,10 +48,11 @@
             <div class="row justify-content-center p-5">
     
               {% comment %} <div class="col-3"></div> {% endcomment %}
-              <div class="col-6">
+              <div class="col-sm-6">
                 <img style="p-5"src="{% static 'l2.jpg' %}" alt="Login Image" class="img-fluid">
               </div>       
-              <div class="col-6 mt-5 w-25 p-5" style="border-radius: 5px;background-color: #f2f2f2; border-width:5px;padding: 20px; height:400px;">
+              <div class="login col-sm-5 mt-5 p-5" style="border-radius: 5px;background-color: #f2f2f2; border-width:5px;padding: 20px; height:200%;">
+                
                 <h1>Login Page</h1>
                   {% for field in form %}
                   <form>
@@ -59,10 +73,10 @@
     <div class="row justify-content-center p-5">
     
       {% comment %} <div class="col-3"></div> {% endcomment %}
-      <div class="col-6">
+      <div class="col-sm-6">
         <img style="p-5"src="{% static 'l2.jpg' %}" alt="Login Image" class="img-fluid h-100 w-100">
       </div>       
-      <div class="col-5 mt-5 w-50 p-5" style="border-radius: 5px;background-color: #f2f2f2; border-width:5px;padding: 20px; height:600px;">
+      <div class="login col-sm-5 mt-5 p-5" style="border-radius: 5px;background-color: #f2f2f2; border-width:5px;padding: 20px; height:600px;">
         <h1>Sign Up Page</h1>
           {% for field in form %}
           <form>
